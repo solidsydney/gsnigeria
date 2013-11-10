@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  product_model: MyString
+  description: MyText
+  condition: MyString
+  price: 1
+  wholesale_discount: 1
+
+two:
+  name: MyString
+  product_model: MyString
+  description: MyText
+  condition: MyString
+  price: 1
+  wholesale_discount: 1

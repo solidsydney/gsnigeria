@@ -1,0 +1,53 @@
+<h1>Listing products</h1>
+<div class="container">
+  <div class="col-lg-3">
+    <%= search_form_for @search, url: search_products_path, method: :post do |f| %>
+        <%= f.condition_fields do |c| %>
+            <%= render "condition_fields", f: c %>
+        <% end %>
+        <p><%= link_to_add_fields "Add Conditions", f, :condition %>
+        <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
+  </div>
+  <div class="col-lg-9">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Product model</th>
+        <th>Description</th>
+        <th>Condition</th>
+        <th>Price</th>
+        <th>Wholesale discount</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.product_model %></td>
+            <td><%= product.description %></td>
+            <td><%= product.condition %></td>
+            <td><%= product.price %></td>
+            <td><%= product.wholesale_discount %></td>
+            <td><%= link_to 'Show', product %></td>
+            <td><%= link_to 'Edit', edit_product_path(product) %></td>
+            <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

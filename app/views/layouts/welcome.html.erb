@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="favicon.ico">
+  <style>
+    body {
+        padding-top: 50px;
+    }
+  </style>
+
+  <title>globalsales</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- Custom styles for this template -->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="../../assets/js/html5shiv.js"></script>
+  <script src="../../assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="<% if controller_name == "privacy" %>active<% end %> stretch"><a href="<%= privacy_index_path %>"><i class="glyphicon glyphicon-cog"></i> Privacy </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "products" %>active<% end %> stretch"><a href="<%= products_path %>"><i class="glyphicon glyphicon-list"></i> Products </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "welcome" %>active<% end %> stretch"><a href="<%= root_url %>"><i class="glyphicon glyphicon-home"></i> home </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "about_us" %>active<% end %> stretch"><a href="<%= about_us_index_path %>"><i class="glyphicon glyphicon-"></i> About Us </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "faq" %>active<% end %> stretch"><a href="<%= faq_index_path %>"><i class="glyphicon glyphicon-info"></i> FAQ </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "products" %>active<% end %> stretch"><a href="<%= products_path %>"><i class="glyphicon glyphicon-list"></i> Products </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "welcome" %>active<% end %> stretch"><a href="<%= root_url %>"><i class="glyphicon glyphicon-home"></i> home </a></li>
+        <li class="divider-vertical"></li>
+        <li class="<% if controller_name == "about_us" %>active<% end %> stretch"><a href="<%= about_us_index_path %>"><i class="glyphicon glyphicon-"></i> About Us </a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+
+
+<%= yield %>
+
+</body>
+</html>

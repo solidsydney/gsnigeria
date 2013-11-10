@@ -1,0 +1,187 @@
+<script type="text/javascript">
+
+    function mycarousel_initCallback(carousel)
+    {
+        // Disable autoscrolling if the user clicks the prev or next button.
+        carousel.buttonNext.bind('click', function() {
+            carousel.startAuto(0);
+        });
+
+        carousel.buttonPrev.bind('click', function() {
+            carousel.startAuto(0);
+        });
+
+        // Pause autoscrolling if the user moves with the cursor over the clip.
+        carousel.clip.hover(function() {
+            carousel.stopAuto();
+        }, function() {
+            carousel.startAuto();
+        });
+    };
+
+    jQuery(document).ready(function() {
+        jQuery('#mycarousel').jcarousel({
+            scroll: 1,
+            auto: 2,
+            wrap: 'circular',
+            initCallback: mycarousel_initCallback
+        });
+    });
+
+</script>
+
+<div class="after-nav-header">
+   <ul class="list-inline toph">
+     <l1> <%= image_tag "gs.png" %> </l1>
+       <li><a> <i class="glyphicon glyphicon-cog"></i> markets </a> </li>
+       <li><a> <i class="glyphicon glyphicon-home"></i> shops/plazas </a> </li>
+       <li><a> <i class="glyphicon glyphicon-calendar"></i> Restaurants/bar </a> </li>
+       <li><a> <i class="glyphicon glyphicon-book"></i> products/items </a> </li>
+       <li><a> <i class="glyphicon glyphicon-adjust"></i> Event Halls </a> </li>
+       <li><a> <i class="glyphicon glyphicon-ban-circle"></i> others </a> </li>
+     <li><a> <i class="glyphicon glyphicon-ban-circle"></i> thinking </a> </li>
+     <l1> <a href="#" class="btn btn-info"> <i class="icon icon-prev"></i>chat with us</a> </l1>
+
+   </ul>
+</div>
+
+<div id="welcome-content">
+      <div class="left-pane">
+        <h1>Global Sales </h1>
+        <p> Visit all markets and buy your goods without taking a step.
+        </p>
+      </div>
+        <div class="thin-line"></div>
+      <div class="right-pane">
+
+
+      </div>
+</div>
+<div class="wrapper">
+
+    <div class="turn_banner">
+      <div class="jcarousel" id="jcarousel1">
+        <ul class="clearfix" id="mycarousel" style="left: -978px;">
+          <% for advert in @advert %>
+              <li><a href="" target="_blank" title="<%= advert.title %>"><%= image_tag advert.photo.url(:medium), alt: advert.description %></a><div class="turn_info"><h6><a href="<%= advert.external_link %>" target="_blank"><%= advert.name %></a></h6></div></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="turn_btn">
+        <a class="turn_pre"></a>
+        <a class="turn_next"></a>
+      </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="state-select-menu"><a data-toggle="modal" href="#myModal" class="btn btn-default btn-lg">Select State </a></div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Select The State You want to buy From </h4>
+      </div>
+      <div class="modal-body">
+        <ul class="state-display">
+          <% for state in @states %>
+           <a href="<%= state_path(state) %>"><li><%= state.name %></li></a>
+          <% end %>
+
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<div class="state-cont">
+  <div class="left-pane1">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            <i class="glyphicon glyphicon-barcode"></i> Latest Products <span class="caret"></span>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              Trending <span class="caret"></span>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              Recent Shops <span class="caret"></span>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+          <ul>
+            <% for shop in @shops %>
+              <li><%= image_tag shop.photo.url(:thumb) %>
+              <p>
+                <%= shop.shop_description %>
+              </p>
+              </li>
+                <i class="glyphicon glyphicon-chevron-right"></i>
+
+            <% end %>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location-info">
+      <br />
+      <h1 style="background: #2f4f4f; font-size: 15px; color: #fff; ">Your Location </h1>
+
+      You are from <%= @city %> in <%= @country %>
+
+
+    </div>
+  </div>
+  <div class="right-pane1">
+    <div class="right-pane1-item">
+        <h1> Showing Top Most Recent Shops </h1>
+      <ul class="list-inline">
+          <% for shop in @shops %>
+             <li style="margin: 10px;">
+                  <a href="<%= shop_path(shop) %>">
+                    <div class="store-item">
+                       <%= image_tag shop.photo.url(:thumb) %>
+                      <br />
+                      <h3 style="text-decoration: none; background-color: #222222; border-radius: 5px; color:#ffcccc;"><%= shop.name  %></h3>
+                      <p><%= shop.shop_description  %></p>
+                    </div>
+                  </a>
+
+             </li>
+          <% end %>
+
+      </ul>
+    </div>
+    </div>
+
+  </div>
+
+</div>

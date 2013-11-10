@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<h1>Welcome to <%= @state.name %> State</h1>
+<h5>Listing all markets for this state </h5>
+please wait while market is been generated..............
+<% @market.each do |market| %>
+    <div class="market"><%= market.name  %> at <%= market.address %> | <%= link_to "View", market %></div>
+
+<% end %>
+
+<%= link_to 'Edit', edit_state_path(@state) %> |
+<%= link_to 'Back', states_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@market.latitude}%2C#{@market.longitude}" %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @market.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @market.address %>
+</p>
+
+<h1> listing out all the shops in <%= @market.name %></h1>
+<% for shop in @shops %>
+    <%= link_to "#{shop.shop_line} #{shop.shop_number}", shop  %>
+<% end %>
+
+<h3>Nearby Markets within 10 miles range </h3>
+<ul>
+  <% if @market.geocoded? %>
+      <% market = @market.nearbys(10) %>
+      <% market.each do |market| %>
+          <li><%= link_to market.address, market %> (<%= market.distance.round(2) %> miles)</li>
+          <% end %>
+      <% else %>
+      <p>This market has not been geocoded yet </p>
+      <% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_market_path(@market) %> |
+<%= link_to 'Back', markets_path %>

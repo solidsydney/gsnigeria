@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  owner: MyString
+  location: MyString
+  address: MyString
+  food_type: MyString
+  drink_type: MyString
+  description: MyText
+
+two:
+  owner: MyString
+  location: MyString
+  address: MyString
+  food_type: MyString
+  drink_type: MyString
+  description: MyText
