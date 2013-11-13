@@ -1,12 +1,12 @@
 // Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .stretch {
   width: 148px;
   text-align: center;
 }
 .after-nav-header {
-  background: url("background.png") center repeat-x;
+  background: url(image-path("background.png")) center repeat-x;
   width: 98%;
   margin: auto;
   margin-bottom: 10px;
