@@ -9,5 +9,12 @@ class WelcomeController < ApplicationController
     @city = request.location.city
     @country = request.location.country
 
+    respond_to do |format|
+      format.html
+      format.mobile
+      format.xml { render :xml => @shops.to_xml }
+      format.json { render json: @shops}
+    end
+
   end
 end
